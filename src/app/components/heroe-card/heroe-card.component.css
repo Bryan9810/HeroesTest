@@ -1,0 +1,16 @@
+    
+  /* Barra Progresiva */
+  .barra{
+    height: 30px; 
+    border-radius: 0%;
+    font-size: 18px;
+  }
+  
+  .progreso {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+  }
+
+  

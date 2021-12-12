@@ -15,8 +15,7 @@
                     (click)="like()">
                     <i class="far fa-thumbs-up"></i>
                 </a>
-                <a class="btn btn-outline-danger btn-lg m-2 w-25"
-                    target="_blank" role="button" (click)="dislike()">
+                <a class="btn btn-outline-danger btn-lg m-2 w-25" target="_blank" role="button" (click)="dislike()">
                     <i class="far fa-thumbs-down"></i>
                 </a>
             </div>
@@ -82,4 +81,24 @@
         </div>
 
     </div>
+
 </div>
+
+
+    <div class="progress barra">
+        <div class="progress-bar bg-success progreso" role="progressbar" [style.width.%]="likeRatio" aria-valuenow="50"
+            aria-valuemin="0" aria-valuemax="100">
+            <span>
+                <i class="far fa-thumbs-up"></i>
+            </span>
+            {{likeRatio / 100 | percent}}
+        </div>
+        <div class="progress-bar bg-danger progreso" role="progressbar" [style.width.%]="dislikeRatio" aria-valuenow="50"
+            aria-valuemin="0" aria-valuemax="100">
+            <span>
+                <i class="far fa-thumbs-down"></i>
+            </span>
+            {{dislikeRatio / 100 | percent}}
+        </div>
+    </div>
+

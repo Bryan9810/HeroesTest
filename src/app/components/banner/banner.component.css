@@ -1,3 +1,5 @@
+    /* Banner */
+    
     #intro-example {
       height: 400px;
       background-image: url('../../../assets/img/ironman.png');
@@ -58,5 +60,23 @@
     #dislike{
       display: none;
     }
+
+
+    /* Barra Progresiva */
+
+
+    .barra{
+      height: 30px; 
+      border-radius: 0%;
+      font-size: 18px;
+    }
+
+    .progreso {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+    }
+
 
     

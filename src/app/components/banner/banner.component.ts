@@ -1,3 +1,4 @@
+import { elementEventFullName } from '@angular/compiler/src/view_compiler/view_compiler';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -10,63 +11,85 @@ export class BannerComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
+  }
+
+  likeAmount: any = 0;
+  dislikeAmount: any = 0;
+  total: any;
+  likeRatio: any = 0;
+  dislikeRatio: any = 0;
+
+  getLikeRatio() {
+    this.total = this.likeAmount + this.dislikeAmount;
+    if (this.total === 0) {
+      return 50;
+    }
+    return (this.likeAmount / this.total) * 100;
+  }
+
+  getDislikeRatio() {
+    this.total = this.likeAmount + this.dislikeAmount;
+    if (this.total === 0) {
+      return 50;
+    }
+    return (this.dislikeAmount / this.total) * 100;
+  }
+
+  updateRatios() {
+    this.likeRatio = this.getLikeRatio();
+    this.dislikeRatio = this.getDislikeRatio();
+  }
+
+  ifMethod(elementoA: any, elementoB: any) {
+
+    if (elementoA.style.display === "none") {
+      elementoA.style.display = "block";
+      elementoB.style.display = "none";
+    } else {
+      elementoA.style.display = "none";
+      elementoB.style.display = "block";
+    }
+
   }
 
   like() {
-    let like: any = document.getElementById("contenido");
-    let message: any = document.getElementById("like");
 
-    console.log("funciona")
-    if (like.style.display === "none") {
-      like.style.display = "block";
-      message.style.display = "none";
-    } else {
-      like.style.display = "none";
-      message.style.display = "block";
-    }
-  }
+    let contenido: any = document.getElementById("contenido");
+    let messageLike: any = document.getElementById("like");
 
-  getbacklike() {
-    let message: any = document.getElementById("like");
-    let message2: any = document.getElementById("dislike");
-    let like: any = document.getElementById("contenido");
-    
-    console.log("funciona")
-    if (message.style.display === "none") {
-      message.style.display = "block";
-      like.style.display = "none";
-    } else {
-      message.style.display = "none";
-      like.style.display = "block";
-    }
+    this.likeAmount++;
+    this.updateRatios();
+
+    this.ifMethod( contenido,  messageLike);
+
   }
 
   dislike() {
-    let like: any = document.getElementById("contenido");
-    let message2: any = document.getElementById("dislike");
 
-    console.log("funciona")
-    if (like.style.display === "none") {
-      like.style.display = "block";
-      message2.style.display = "none";
-    } else {
-      like.style.display = "none";
-      message2.style.display = "block";
-    }
+    let contenido: any = document.getElementById("contenido");
+    let messageDislike: any = document.getElementById("dislike");
+
+    this.dislikeAmount++;
+    this.updateRatios();
+
+    this.ifMethod( contenido,  messageDislike);
+
+  }
+
+  getbacklike() { 
+    let messageLike: any = document.getElementById("like");
+    let contenido: any = document.getElementById("contenido");
+
+    this.ifMethod( messageLike, contenido );
   }
 
   getbackdis() {
-    let message2: any = document.getElementById("dislike");
-    let like: any = document.getElementById("contenido");
-    
-    console.log("funciona")
-    if (message2.style.display === "none") {
-      message2.style.display = "block";
-      like.style.display = "none";
-    } else {
-      message2.style.display = "none";
-      like.style.display = "block";
-    }
-  }
+    let messageDislike: any = document.getElementById("dislike");
+    let contenido: any = document.getElementById("contenido");
+
+    this.ifMethod( messageDislike, contenido );
+   }
+
 
 }
