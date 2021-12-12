@@ -1,0 +1,62 @@
+    #intro-example {
+      height: 400px;
+      background-image: url('../../../assets/img/ironman.png');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    /* Height for devices larger than 992px */
+    @media (min-width: 992px) {
+      #intro-example {
+        height: 600px;
+      }
+    }
+
+    .respon{
+      
+      background-color: rgba(0, 0, 0, 0.7);
+      height: 400px;
+      width: 50vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+    } 
+
+    @media (max-width: 763px) {
+      .respon{
+        height: 50vh;
+        width: 100vw;
+      }
+    }
+    
+    .parrafos{
+      text-align: start;
+    }
+
+    p{
+      text-align: justify;
+    }
+
+     @media (max-width: 524px) {
+      p{
+        font-size: x-small
+      }
+    } 
+    
+    .box{
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    #like {
+      display: none;
+    }
+
+    #dislike{
+      display: none;
+    }
+
+    
