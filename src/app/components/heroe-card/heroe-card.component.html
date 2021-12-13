@@ -1,4 +1,4 @@
-<div class="card bg-dark text-white tarjeta">
+<div class="card bg-dark text-white">
     <img [src]="heroe.img" [alt]="heroe.nombre" class="card-img img-fluid" />
     <div class="card-img-overlay d-flex justify-content-center flex-column">
         <div class="d-flex justify-content-start align-items-center">
@@ -16,6 +16,7 @@
             {{ heroe.bio }}
         </p>
         <p class="card-text">{{ heroe.tiempoV }}</p>
+
     </div>
     <div class="progress barra">
         <div class="progress-bar bg-success progreso" role="progressbar" [style.width.%]="heroe.likepercent"
@@ -23,14 +24,14 @@
             <span>
                 <i class="far fa-thumbs-up"></i>
             </span>
-            {{ heroe.likepercent }}
+            {{ heroe.likepercent / 100 | percent}}
         </div>
         <div class="progress-bar bg-danger progreso" role="progressbar" [style.width.%]="heroe.dispercent"
             aria-valuenow="heroe.dispercent" aria-valuemin="0" aria-valuemax="100">
             <span>
                 <i class="far fa-thumbs-down"></i>
             </span>
-            {{ heroe.dispercent }}
+            {{ heroe.dispercent / 100 | percent}}
         </div>
     </div>
 </div>
